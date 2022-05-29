@@ -1,14 +1,17 @@
 ---
-name: vagrant-up
+name: CI
 
 on: [push] # yamllint disabled-line rule:truthy
 
 jobs:
   vagrant-up:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v3.1.2
 
       - name: Cache Vagrant boxes
         uses: actions/cache@v2
@@ -24,5 +27,7 @@ jobs:
       - name: Run vagrant up
         run: vagrant up
 
+      - name: Install ansible
+        run: pip install -r requirements.txt
       - name: ssh into box after boot
         run: vagrant ssh -c "ip link"
