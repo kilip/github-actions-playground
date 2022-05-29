@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
     end
     config.vm.define "k8s-2" do |c|
       c.vm.box = "ubuntu/jammy64"
-      c.vm.network "public_network", ip: "10.10.10.11"
+      c.vm.network "public_network", ip: "10.10.10.13"
     end
 
 end
