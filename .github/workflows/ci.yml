@@ -29,5 +29,9 @@ jobs:
 
       - name: Install ansible
         run: pip install -r requirements.txt
+
       - name: ssh into box after boot
         run: vagrant ssh -c "ip link"
+
+      - name: test ping
+        run: ansible all --one-line -m 'ping'

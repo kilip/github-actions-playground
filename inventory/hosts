@@ -1,0 +1,14 @@
+k8s-0
+k8s-1
+k8s-2
+
+[master]
+k8s-0
+
+[worker]
+k8s-1
+k8s-2
+
+[kubernetes:children]
+master
+worker
