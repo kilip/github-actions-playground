@@ -1,7 +1,7 @@
 ---
 name: vagrant-up
 
-on: [push]
+on: [push] # yamllint disabled-line rule:truthy
 
 jobs:
   vagrant-up:
@@ -25,4 +25,4 @@ jobs:
         run: vagrant up
 
       - name: ssh into box after boot
-        run: vagrant ssh -c "echo 'hello world!'"
+        run: vagrant ssh -c "ip link"
